@@ -15,6 +15,13 @@ export class SnackbarService {
         duration: 2000,
         panelClass: ['red-snackbar'],
       });
+    } else if (action == 'warn') {
+      this.snackBar.open(message, '', {
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom',
+        duration: 2000,
+        panelClass: ['yellow-snackbar'],
+      });
     } else {
       this.snackBar.open(message, '', {
         horizontalPosition: 'center',
