@@ -12,8 +12,8 @@ import { GlobalConstants } from '../shared/global-constants';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent implements OnInit {
-  password: boolean = true;
-  confirmPassword: boolean = true;
+  hidePassword: boolean = true;
+  hideConfirmPassword: boolean = true;
   signupForm: any = FormGroup;
   responseMessage: any;
 

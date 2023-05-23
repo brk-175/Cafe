@@ -13,4 +13,8 @@ export class UserService {
   onSignup(data: any) {
     return this.http.post(this.url + '/user/signup', data);
   }
+
+  onLogin(data: any) {
+    return this.http.post(this.url + '/user/login', data);
+  }
 }

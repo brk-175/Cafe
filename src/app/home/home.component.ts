@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { LoginComponent } from '../login/login.component';
 import { SignupComponent } from '../signup/signup.component';
 @Component({
   selector: 'app-home',
@@ -15,5 +16,11 @@ export class HomeComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = '550px';
     this.dialog.open(SignupComponent, dialogConfig);
+  }
+
+  handleLogin() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = '550px';
+    this.dialog.open(LoginComponent, dialogConfig);
   }
 }

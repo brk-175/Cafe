@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './services/user.service';
 import { SnackbarService } from './services/snackbar.service';
 import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
 
 // const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 //   text: 'Loading..',
@@ -38,6 +39,7 @@ import { SignupComponent } from './signup/signup.component';
     AppHeaderComponent,
     AppSidebarComponent,
     SignupComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

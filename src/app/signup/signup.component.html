@@ -71,17 +71,19 @@
           formControlName="password"
           type="password"
           required
-          [type]="password ? 'password' : 'text'"
+          [type]="hidePassword ? 'password' : 'text'"
         />
         <button
           type="button"
           mat-icon-button
           matSuffix
-          (click)="password = !password"
+          (click)="hidePassword = !hidePassword"
           [attr.aria-label]="'Hide password'"
-          [attr.aria-pressed]="password"
+          [attr.aria-pressed]="hidePassword"
         >
-          <mat-icon>{{ password ? "visibility_off" : "visibility" }}</mat-icon>
+          <mat-icon>{{
+            hidePassword ? "visibility_off" : "visibility"
+          }}</mat-icon>
         </button>
         <mat-error
           *ngIf="
@@ -102,18 +104,18 @@
           formControlName="confirmPassword"
           type="password"
           required
-          [type]="confirmPassword ? 'password' : 'text'"
+          [type]="hideConfirmPassword ? 'password' : 'text'"
         />
         <button
           type="button"
           mat-icon-button
           matSuffix
-          (click)="confirmPassword = !confirmPassword"
+          (click)="hideConfirmPassword = !hideConfirmPassword"
           [attr.aria-label]="'Hide confirmPassword'"
-          [attr.aria-pressed]="confirmPassword"
+          [attr.aria-pressed]="hideConfirmPassword"
         >
           <mat-icon>{{
-            confirmPassword ? "visibility_off" : "visibility"
+            hideConfirmPassword ? "visibility_off" : "visibility"
           }}</mat-icon>
         </button>
         <mat-error
