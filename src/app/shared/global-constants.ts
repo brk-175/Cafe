@@ -10,4 +10,7 @@ export class GlobalConstants {
   public static contactRegex: string = '^[e0-9]{10,10}$';
 
   public static error: string = 'error';
+
+  public static unauthorized: string =
+    'You are not authorized to access this page!';
 }

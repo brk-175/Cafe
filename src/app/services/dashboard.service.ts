@@ -5,20 +5,12 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class UserService {
+export class DashboardService {
   url: string = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
-  onSignup(data: any) {
-    return this.http.post(this.url + '/user/signup', data);
-  }
-
-  onLogin(data: any) {
-    return this.http.post(this.url + '/user/login', data);
-  }
-
-  checkToken() {
-    return this.http.get(this.url + '/user/checkToken');
+  getDetails() {
+    return this.http.get(this.url + '/dashboard/getCount');
   }
 }

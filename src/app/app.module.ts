@@ -13,11 +13,12 @@ import { SharedModule } from './shared/shared.module';
 import { FullComponent } from './layouts/full/full.component';
 import { AppHeaderComponent } from './layouts/full/header/header.component';
 import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserService } from './services/user.service';
 import { SnackbarService } from './services/snackbar.service';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { TokenInterceptorInterceptor } from './services/token-interceptor.interceptor';
 
 // const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 //   text: 'Loading..',
@@ -53,7 +54,15 @@ import { LoginComponent } from './login/login.component';
     HttpClientModule,
     // NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
   ],
-  providers: [UserService, SnackbarService],
+  providers: [
+    UserService,
+    SnackbarService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
