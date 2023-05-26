@@ -16,6 +16,13 @@ const MENUITEMS = [
     icon: 'dashboard',
     role: '',
   },
+  {
+    state: 'category',
+    name: 'Manage Category',
+    type: 'link',
+    icon: 'category',
+    role: '',
+  },
 ];
 
 @Injectable()

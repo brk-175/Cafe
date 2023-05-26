@@ -61,22 +61,18 @@ export class SignupComponent implements OnInit {
       contactNumber: formData.contactNumber,
       password: formData.password,
     };
-    if (formData.name.length == 0)
-      this.snackBarService.openSnackBar('Please Enter Name!', 'warn');
-    else {
-      this.userService.onSignup(data).subscribe(
-        (response: any) => {
-          this.dialogRef.close();
-          this.responseMessage = response.message;
-          this.snackBarService.openSnackBar(this.responseMessage, 'success');
-          this.router.navigate(['/']);
-        },
-        (error: any) => {
-          if (error.error?.message) this.responseMessage = error.error?.message;
-          else this.responseMessage = GlobalConstants.genericError;
-          this.snackBarService.openSnackBar(this.responseMessage, 'error');
-        }
-      );
-    }
+    this.userService.onSignup(data).subscribe(
+      (response: any) => {
+        this.dialogRef.close();
+        this.responseMessage = response.message;
+        this.snackBarService.openSnackBar(this.responseMessage, 'success');
+        this.router.navigate(['/']);
+      },
+      (error: any) => {
+        if (error.error?.message) this.responseMessage = error.error?.message;
+        else this.responseMessage = GlobalConstants.genericError;
+        this.snackBarService.openSnackBar(this.responseMessage, 'error');
+      }
+    );
   }
 }

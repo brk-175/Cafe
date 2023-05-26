@@ -128,14 +128,12 @@
             >This field is mandatory!</span
           >
         </mat-error>
-        <mat-hint>
-          <span
-            *ngIf="
-              validatePassword() && !signupForm.controls.confirmPassword.invalid
-            "
-          >
-            Password and Confirm Password field does not match!
-          </span>
+        <mat-hint
+          *ngIf="
+            validatePassword() && !signupForm.controls.confirmPassword.invalid
+          "
+        >
+          <span> Password and Confirm Password field does not match! </span>
         </mat-hint>
       </mat-form-field>
     </div>
