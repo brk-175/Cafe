@@ -18,7 +18,7 @@ export class CategoryService {
     return this.http.post(this.url + '/category/add', data);
   }
 
-  udpateCategory(data: any) {
-    return this.http.put(this.url + '/category/update', data);
+  updateCategory(data: any) {
+    return this.http.post(this.url + '/category/update', data);
   }
 }
