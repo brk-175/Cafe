@@ -47,12 +47,8 @@ export class AuthGuard implements CanActivate {
       if (userRole == roles[i]) {
         if (this.authService.isAuthenticated()) return true;
       }
-      this.snackBarService.openSnackBar(GlobalConstants.unauthorized, 'error');
-      this.router.navigate(['/cafe/dashboard']);
-      return false;
     }
-    this.router.navigate(['/']);
-    localStorage.clear();
+    this.snackBarService.openSnackBar(GlobalConstants.unauthorized, 'error');
     return false;
   }
 }

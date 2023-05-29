@@ -21,4 +21,12 @@ export class CategoryService {
   updateCategory(data: any) {
     return this.http.post(this.url + '/category/update', data);
   }
+
+  getFilteredCategories() {
+    return this.http.get(this.url + '/category/all');
+  }
+
+  deleteCategory(id: any) {
+    return this.http.get(this.url + '/category/delete/' + id);
+  }
 }

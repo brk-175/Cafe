@@ -23,6 +23,20 @@ const MENUITEMS = [
     icon: 'category',
     role: '',
   },
+  {
+    state: 'product',
+    name: 'Manage Products',
+    type: 'link',
+    icon: 'inventory_2',
+    role: '',
+  },
+  {
+    state: 'order',
+    name: 'Manage Orders',
+    type: 'link',
+    icon: 'shopping_cart',
+    role: '',
+  },
 ];
 
 @Injectable()

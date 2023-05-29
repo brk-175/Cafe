@@ -14,6 +14,9 @@ import { ConfirmationComponent } from './dialog/confirmation/confirmation.compon
 import { ChangePasswordComponent } from './dialog/change-password/change-password.component';
 import { CategoryComponent } from './category/category.component';
 import { CategoryActionsComponent } from './category-actions/category-actions.component';
+import { ProductComponent } from './product/product.component';
+import { ProductActionsComponent } from './product-actions/product-actions.component';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
   imports: [
@@ -32,7 +35,10 @@ import { CategoryActionsComponent } from './category-actions/category-actions.co
     ConfirmationComponent,
     ChangePasswordComponent,
     CategoryComponent,
-    CategoryActionsComponent
+    CategoryActionsComponent,
+    ProductComponent,
+    ProductActionsComponent,
+    OrderComponent
   ]
 })
 export class MaterialComponentsModule {}
