@@ -3,7 +3,6 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { CdkTableModule } from '@angular/cdk/table';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -17,6 +16,7 @@ import { CategoryActionsComponent } from './category-actions/category-actions.co
 import { ProductComponent } from './product/product.component';
 import { ProductActionsComponent } from './product-actions/product-actions.component';
 import { OrderComponent } from './order/order.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   imports: [
@@ -27,7 +27,8 @@ import { OrderComponent } from './order/order.component';
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    CdkTableModule
+    CdkTableModule,
+    MatPaginatorModule,
   ],
   providers: [],
   declarations: [
@@ -38,7 +39,7 @@ import { OrderComponent } from './order/order.component';
     CategoryActionsComponent,
     ProductComponent,
     ProductActionsComponent,
-    OrderComponent
-  ]
+    OrderComponent,
+  ],
 })
 export class MaterialComponentsModule {}

@@ -29,7 +29,7 @@ export class CategoryActionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoryForm = this.formBuilder.group({
-      name: [null, [Validators.required]],
+      name: [null, [Validators.required, Validators.pattern(GlobalConstants.nameRegex)]],
     });
     if (this.dialogData.action === 'edit') {
       this.dialogAction = 'edit';

@@ -17,8 +17,8 @@ export class OrderComponent implements OnInit {
     'name',
     'category',
     'quantity',
-    'total',
     'price',
+    'total',
     'edit',
   ];
   dataSource: any = [];
@@ -170,6 +170,14 @@ export class OrderComponent implements OnInit {
     );
     if (productName === undefined) {
       this.totalAmount = this.totalAmount + formData.total;
+      const data = {
+        id: formData.product.id,
+        name: formData.product.name,
+        category: formData.category.name,
+        quantity: formData.quantity,
+        price: formData.price,
+        total: formData.total,
+      };
       this.dataSource.push({
         id: formData.product.id,
         name: formData.product.name,
@@ -192,17 +200,5 @@ export class OrderComponent implements OnInit {
     this.totalAmount = this.totalAmount - element.total;
     this.dataSource.splice(value, 1);
     this.dataSource = [...this.dataSource];
-  }
-
-  submitAction() {
-    const formData = this.orderForm.value;
-    const data = {
-      name: formData.name,
-      email: formData.email,
-      contactNumber: formData.contactNumber,
-      paymentMehtod: formData.paymentMehtod,
-      totalAmount: formData.totalAmount,
-      productDetails: JSON.stringify(this.dataSource),
-    };
   }
 }

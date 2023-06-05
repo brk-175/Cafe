@@ -61,6 +61,7 @@ export class SignupComponent implements OnInit {
       contactNumber: formData.contactNumber,
       password: formData.password,
     };
+    
     this.userService.onSignup(data).subscribe(
       (response: any) => {
         this.dialogRef.close();

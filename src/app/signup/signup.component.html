@@ -13,7 +13,7 @@
     <div fxFlex fxLayout="column">
       <mat-form-field appearance="standard" fxFlex>
         <mat-label>Name</mat-label>
-        <input matInput formControlName="name" required />
+        <input matInput formControlName="name" type="text" required />
         <mat-error
           *ngIf="
             signupForm.controls.name.touched && signupForm.controls.name.invalid
@@ -41,7 +41,7 @@
             >This field is mandatory!</span
           >
           <span *ngIf="signupForm.controls.contactNumber.errors.pattern"
-            >This field is Invalid!</span
+            >This field should contain 10 digits!</span
           >
         </mat-error>
       </mat-form-field>
@@ -132,8 +132,7 @@
           *ngIf="
             validatePassword() && !signupForm.controls.confirmPassword.invalid
           "
-        >
-          <span> Password and Confirm Password field does not match! </span>
+          >Password and Confirm Password field does not match!
         </mat-hint>
       </mat-form-field>
     </div>

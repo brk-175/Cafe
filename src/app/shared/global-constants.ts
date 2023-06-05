@@ -2,7 +2,7 @@ export class GlobalConstants {
   public static genericError: string =
     'Something Went Wrong! Please Try Again!!';
 
-  public static nameRegex: string = '[A-Za-z0-9 ]*';
+  public static nameRegex: string = '[A-Za-z ]*';
 
   public static emailRegex: string =
     '[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}';

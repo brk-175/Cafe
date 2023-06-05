@@ -44,8 +44,13 @@ export class ChangePasswordComponent implements OnInit {
     this.userService.changePassword(data).subscribe(
       (response: any) => {
         this.dialogRef.close();
-        this.responseMessage = response.message;
-        this.snackBarService.openSnackBar(this.responseMessage, 'success');
+        if (response.error) {
+          this.responseMessage = response.error;
+          this.snackBarService.openSnackBar(this.responseMessage, 'error');
+        } else {
+          this.responseMessage = response.message;
+          this.snackBarService.openSnackBar(this.responseMessage, 'success');
+        }
       },
       (error: any) => {
         if (error.error?.message) this.responseMessage = error.error?.message;
@@ -57,8 +62,8 @@ export class ChangePasswordComponent implements OnInit {
 
   validatePassword() {
     if (
-      this.changePassForm.controls.newPassword !=
-      this.changePassForm.controls.confirmPassword
+      this.changePassForm.controls['newPassword'].value !=
+      this.changePassForm.controls['confirmPassword'].value
     )
       return true;
     return false;

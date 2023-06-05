@@ -1,10 +1,7 @@
-import { ThrowStmt } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
-import {
-  MatDialog,
-  MatDialogConfig,
-  MatDialogRef,
-} from '@angular/material/dialog';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
@@ -19,6 +16,8 @@ import { ConfirmationComponent } from '../dialog/confirmation/confirmation.compo
   styleUrls: ['./category.component.scss'],
 })
 export class CategoryComponent implements OnInit {
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   displayedColumns: string[] = ['name', 'edit'];
   dataSource: any;
   responseMessage: any;
@@ -38,6 +37,7 @@ export class CategoryComponent implements OnInit {
     this.categoryService.getAllCategories().subscribe(
       (response: any) => {
         this.dataSource = new MatTableDataSource(response);
+        this.dataSource.paginator = this.paginator;
       },
       (error: any) => {
         if (error.error?.message) this.responseMessage = error.error?.message;

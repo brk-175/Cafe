@@ -1,13 +1,12 @@
-
 <mat-card>
-  <b><span>Manage Category</span></b>
+  <b><span>Manage Products</span></b>
   <button
     mat-flat-button
     color="primary"
     (click)="handleAddAction()"
     class="float-right"
   >
-    <mat-icon>add_circle</mat-icon>Add Category
+    <mat-icon>add_circle</mat-icon>Add Product
   </button>
 </mat-card>
 <hr />
@@ -64,4 +63,5 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
+  <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10]"></mat-paginator>
 </div>

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
@@ -14,6 +15,7 @@ import { ProductActionsComponent } from '../product-actions/product-actions.comp
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit {
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   displayedColumns: string[] = [
     'name',
     'categoryName',
@@ -40,6 +42,7 @@ export class ProductComponent implements OnInit {
     this.productService.getAllProducts().subscribe(
       (response: any) => {
         this.dataSource = new MatTableDataSource(response);
+        this.dataSource.paginator = this.paginator;
       },
       (error: any) => {
         if (error.error?.message) this.responseMessage = error.error?.message;
